@@ -18,9 +18,10 @@
                 v-model="name"
               />
             </v-form>
+            <p v-if="feedback" class="red--text">{{ feedback }}</p>
             <v-card-actions>
               <v-spacer />
-              <v-btn color="primary" @click="login" min-width="150"
+              <v-btn color="primary" @click="enterChat" min-width="150"
                 >Enter</v-btn
               >
             </v-card-actions>
@@ -37,11 +38,20 @@ export default {
   data() {
     return {
       name: null,
+      feedback: null,
     }
   },
   methods: {
-    login() {
-      console.log('DEBUG:::::::::::::::::::::: logging into chat', this.name)
+    enterChat() {
+      if (this.name) {
+        this.$router.push({
+          name: 'Chat',
+          params: {
+            name: this.name,
+          },
+        })
+      }
+      this.feedback = 'You must enter a name to join.'
     },
   },
 }

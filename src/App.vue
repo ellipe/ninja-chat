@@ -10,7 +10,9 @@
           transition="scale-transition"
           width="40"
         />
-        Ninja Chat
+        <router-link :to="{ name: 'Welcome' }">
+          <span class="white--text">Ninja Chat</span>
+        </router-link>
       </div>
     </v-app-bar>
     <v-main>

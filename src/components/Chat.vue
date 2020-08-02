@@ -85,6 +85,7 @@ export default {
 }
 
 .messages {
+  list-style-type: none;
   max-height: 75vh;
   overflow: auto;
 }
